@@ -1,9 +1,11 @@
-<app-header></app-header>
+<!-- 透過 onNavigate 改變 app compo 內 loadedFeature 的值來操作 route  -->
+<app-header (featureSelected)="onNavigate($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shopping-list></app-shopping-list>
+      <!-- 透過判斷 app compo 內 loadedFeature 的值來顯示特定 compo -->
+      <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
+      <app-shopping-list *ngIf="loadedFeature === 'shopping-list'"></app-shopping-list>
     </div>
   </div>
 </div>
